@@ -17,11 +17,19 @@ const routes = [
         }
     },
     {
-        path: '/page',
-        name: 'page',
+        path: '/topic/:id',
+        name: 'topic',
         components: {
             default: () => import('../views/Main/Page.vue'),
             side: () => import('../views/Side/Page.vue')
+        }
+    },
+    {
+        path: '/user/:id',
+        name: 'user',
+        components: {
+            default: () => import('../views/Main/User.vue'),
+            side: () => import('../views/Side/User.vue')
         }
     }
 ]

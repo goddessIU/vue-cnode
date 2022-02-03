@@ -24,9 +24,9 @@
         <span>制定</span>
       </el-col>
       <el-col :span="13">
-        <router-link to="/home" class="titleContent">{{
+        <a class="titleContent" @click="toTopic(topicContent.id)">{{
           topicContent.title
-        }}</router-link>
+        }}</a>
       </el-col>
       <el-col :span="2" class="contentBox">
         <div class="imgBox2">
@@ -112,6 +112,12 @@ export default {
       });
       this.page = 1;
     },
+    toTopic(id) {
+      this.$router.push({
+        name: 'topic',
+        params: { id }
+      })
+    }
   }
 };
 </script>

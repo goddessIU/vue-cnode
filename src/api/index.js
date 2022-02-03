@@ -26,3 +26,12 @@ export function getAllTopics() {
         mock: false
     })
 }
+
+export function getPage(id, params) {
+    return request({
+        url: `/topic/${id}`,
+        method: 'get',
+        mock: false,
+        data: params
+    })
+}

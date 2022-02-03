@@ -2,7 +2,7 @@
   <el-row class="all">
     <el-row class="gray">无人回复的话题</el-row>
     <el-row class="white">
-      <router-link to="/home" v-for="topicContent in unPopularContents" :key="topicContent.id" class="content">{{topicContent.title}}</router-link>
+      <a v-for="topicContent in unPopularContents" :key="topicContent.id" class="content"    @click="toTopic(topicContent.id)">{{topicContent.title}}</a>
     </el-row>
   </el-row>
 </template>
@@ -18,6 +18,14 @@ export default {
     unPopularContents() {
       let contents = this.$store.state.home.allTopics;
       return contents.sort((a, b) => a.reply_count - b.reply_count ).slice(0, 6);
+    }
+  },
+  methods: {
+    toTopic(id) {
+      this.$router.push({
+        name: 'topic',
+        params: { id }
+      })
     }
   }
 };

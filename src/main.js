@@ -15,8 +15,12 @@ Vue.use(Pagination);
 Vue.prototype.$moment = moment;
 
 
+
 new Vue({
   render: h => h(App),
   router,
-  store
+  store,
+  mounted() {
+    Vue.prototype.$bus = this;
+  }
 }).$mount('#app')

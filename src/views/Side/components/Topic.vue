@@ -8,13 +8,9 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex';
 export default {
   name: 'Topic',
   computed: {
-    // ...mapState({
-    //   allTopics: (state) => state.home.allTopics || []
-    // }),
     unPopularContents() {
       let contents = this.$store.state.home.allTopics;
       return contents.sort((a, b) => a.reply_count - b.reply_count ).slice(0, 6);

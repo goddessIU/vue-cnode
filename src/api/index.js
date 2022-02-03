@@ -35,3 +35,11 @@ export function getPage(id, params) {
         data: params
     })
 }
+
+export function getAuthor(loginname) {
+    return request({
+        url: `/user/${loginname}`,
+        method: 'get',
+        mock: false
+    })
+}

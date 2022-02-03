@@ -1,11 +1,11 @@
-import {getPage} from '../api/index';
+import { getPage } from '../api/index';
 
 const state = {
     topic: {}
 };
 const actions = {
     async getTopic({commit}, id, params) {
-        let res = await getPage( id, params);
+        let res = await getPage(id, params);
         commit('GETTOPIC', res);
     }
 };

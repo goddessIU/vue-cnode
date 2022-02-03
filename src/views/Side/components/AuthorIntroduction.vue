@@ -2,18 +2,32 @@
   <el-row class="all">
     <el-row class="gray">作者</el-row>
     <el-row class="white">
-      <router-link to="/home">
-        <img src="../../../assets/images/1.jpg" alt="" class="img">
-        大帅币
+      <router-link :to="`/user/${author.loginname}`">
+        <img :src="author.avatar_url" alt="" class="img" />
+        {{ author.loginname }}
       </router-link>
-      <p>积分： 125</p>
-      <p>“ 这家伙很懒，什么个性签名都没有留下。 ”</p>
+      <p>积分： {{ author.score }}</p>
     </el-row>
   </el-row>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  name: "AuthorIntroduction",
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapState({
+      author: (state) => state.author.author || {},
+    }),
+  },
+  mounted() {
+  },
+  methods: {
+  },
+};
 </script>
 
 <style lang="less" scoped>
@@ -29,8 +43,8 @@ export default {};
     background-color: #fff;
     padding: 3px 0 0 5px;
     .img {
-        width: 30px;
-        height: 30px;
+      width: 30px;
+      height: 30px;
     }
   }
 }

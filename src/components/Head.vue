@@ -10,9 +10,6 @@
                 <router-link to="/home">主页</router-link>
             </el-col>
             <el-col :span="2">
-                <router-link to="/home">api</router-link>
-            </el-col>
-            <el-col :span="2">
                 <router-link to="/home">注册</router-link>
             </el-col>
             <el-col :span="2">

@@ -65,6 +65,11 @@ export default {
   mounted() {
     this.getTopic();
   },
+  watch: {
+      $route() {
+          this.getTopic();
+      }
+  },
   methods: {
     async getTopic() {
       try {
@@ -72,6 +77,8 @@ export default {
           mdrender: "true",
         });
         this.topic = this.$store.state.topic.topic;
+        if (this.topic && this.topic.author && this.topic.author.loginname)
+        await this.$store.dispatch("GetAuthor", this.topic.author.loginname);
       } catch (err) {
         Promise.reject(new Error("err"));
       }
@@ -110,8 +117,9 @@ export default {
       padding-left: 10px;
     }
     /deep/ img {
-      width: 90%;
-      padding: 0 5%;
+      width: 80%;
+      padding: 0 10%;
+      height: 80%;
     }
     /deep/ a {
       color: rgb(142, 184, 28);
